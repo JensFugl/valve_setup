@@ -10,9 +10,10 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 import csv
-
 from datetime import datetime, timezone
 
+
+from creds import access_key_id, secret_access_key
 
 plt.close('all')
 
@@ -56,8 +57,8 @@ epoch_list = np.arange(epoch1, epoch2, batchsize).tolist()
 client = boto3.client(
     'dynamodb',
     # Hard coded strings as credentials, not recommended (pythonScript).
-    aws_access_key_id='AKIA4GGJ4WLZBE6IZ7AZ',
-    aws_secret_access_key='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',
+    aws_access_key_id= access_key_id, 
+    aws_secret_access_key=secret_access_key,
     region_name='eu-central-1'
 )
 
@@ -100,9 +101,6 @@ data = (zip(epoch, pres, temp, rt))
     ########################CSV writer 8########################
 
 if write == True:
-    
-
-
     CSVwriter('data/valve_data.csv', data, ['Time', 'Pressure', 'Temperature', 'rt'])
 
 
