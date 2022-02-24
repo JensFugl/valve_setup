@@ -1,2 +1,3 @@
 # valve_setup
-Get, refine and plot data from valve setup
+
+Code for retrieving data from a specific ESP32 controlled experimental setup through AWS IoT core.
